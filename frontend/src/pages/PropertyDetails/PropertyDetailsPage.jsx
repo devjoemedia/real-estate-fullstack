@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Review from "../../components/Review";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import numeral from "numeral";
 
 const PropertyDetailsPage = () => {
+  const [property, setProperty] = useState();
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.get("/api/properties/" + id);
+        setProperty(data.property);
+        console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, [id]);
+
   return (
     <Box py={4}>
       <Container maxWidth="lg">
@@ -16,9 +35,7 @@ const PropertyDetailsPage = () => {
               component="img"
               height="400px"
               width="100%"
-              src={
-                "https://images.adsttc.com/media/images/5e68/48ed/b357/658e/fb00/0441/large_jpg/AM1506.jpg?1583892706"
-              }
+              src={property?.bannerImage}
               alt="green iguana"
               sx={{ borderRadius: "10px" }}
             />
@@ -30,10 +47,10 @@ const PropertyDetailsPage = () => {
               }}
             >
               <Box>
-                <Typography variant="h4">Grand Hyatt Hotel</Typography>
+                <Typography variant="h4">{property?.name}</Typography>
                 <Typography variant="h5" color="#777">
                   {" "}
-                  San Francisco
+                  {property?.location?.city}
                 </Typography>
               </Box>
               <Box>
@@ -46,7 +63,7 @@ const PropertyDetailsPage = () => {
                       color: "#222",
                     }}
                   >
-                    $2500
+                    ${numeral(property?.price).format()}
                   </span>
                 </Typography>
               </Box>
@@ -156,18 +173,7 @@ const PropertyDetailsPage = () => {
 
             <Box>
               <Typography mb={2.5} sx={{ color: "#666", fontSize: "16px" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores facilis natus, quidem ut dicta incidunt corporis cum
-                dolor velit quo fuga deserunt, corrupti amet nam eos a saepe.
-                Sequi nesciunt accusantium odio possimus debitis maiores, sint
-                recusandae temporibus deleniti tempora?
-              </Typography>
-              <Typography mb={2.5} sx={{ color: "#666", fontSize: "16px" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores facilis natus, quidem ut dicta incidunt corporis cum
-                dolor velit quo fuga deserunt, corrupti amet nam eos a saepe.
-                Sequi nesciunt accusantium odio possimus debitis maiores, sint
-                recusandae temporibus deleniti tempora?
+                {property?.description}
               </Typography>
             </Box>
 

@@ -27,10 +27,7 @@ function App() {
         <Route path="contacts" element={<ContactsPage />} />
         <Route index element={<IndexPage />} />
         <Route path="properties" element={<PropertiesPage />} />
-        <Route
-          path="properties/:propertyId"
-          element={<PropertyDetailsPage />}
-        />
+        <Route path="properties/:id" element={<PropertyDetailsPage />} />
       </Routes>
       <Footer />
     </Box>

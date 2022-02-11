@@ -1,12 +1,13 @@
 const asyncHandler = require("express-async-handler");
 const Property = require("../models/Property");
+const Review = require("../models/Review");
 
 // @method GET Request
 // @desc Get all properties
 const getProperties = asyncHandler(async (req, res) => {
   const properties = req.query.limit
-    ? Property.find().limit(req.query.limit)
-    : await Property.find();
+    ? Property.find().limit(req.query.limit).populate("reviews")
+    : await Property.find().populate("reviews");
 
   res.status(200).json({
     status: "success",
@@ -20,7 +21,7 @@ const getProperties = asyncHandler(async (req, res) => {
 const getProperty = asyncHandler(async (req, res) => {
   const id = req.params.id;
 
-  const property = await Property.findById(id);
+  const property = await Property.findById(id).populate("reviews");
 
   if (!property) {
     throw new Error(`Property not found`);
