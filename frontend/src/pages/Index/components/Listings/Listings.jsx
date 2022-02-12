@@ -66,7 +66,9 @@ const Listings = () => {
                       }}
                     >
                       <Box component="div">
-                        <Typography variant="h5">{property.name}</Typography>
+                        <Typography variant="h6" component="p">
+                          {property.name}
+                        </Typography>
                         <Typography variant="p" color={"#777"}>
                           <i class="fas fa-map-marker-alt"></i>{" "}
                           {property.location.city}

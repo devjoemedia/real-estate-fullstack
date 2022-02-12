@@ -33,10 +33,6 @@ const Listings = () => {
   return (
     <Box py={6}>
       <Container>
-        <Typography variant="h3" sx={{ textAlign: "center" }} mb={2}>
-          Top Listings
-        </Typography>
-
         <Grid container spacing={2}>
           {properties.map((property) => (
             <Grid item xs={12} sm={6} md={4}>
@@ -66,7 +62,9 @@ const Listings = () => {
                       }}
                     >
                       <Box component="div">
-                        <Typography variant="h5">{property.name}</Typography>
+                        <Typography variant="h6" component="p">
+                          {property.name}
+                        </Typography>
                         <Typography variant="p" color={"#777"}>
                           <i class="fas fa-map-marker-alt"></i>{" "}
                           {property.location.city}
