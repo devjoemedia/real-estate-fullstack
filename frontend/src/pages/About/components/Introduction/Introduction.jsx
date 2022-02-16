@@ -3,6 +3,8 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import LazyImage from "components/LazyImage";
+import barnerImage from "images/barnner.jpg";
 
 const Introduction = () => {
   return (
@@ -48,16 +50,10 @@ const Introduction = () => {
             Learn More
           </Button>
         </Grid>
+
         <Grid item xs={12} sm={6}>
-          <Box
-            src={
-              "https://images.adsttc.com/media/images/5e68/48ed/b357/658e/fb00/0441/large_jpg/AM1506.jpg?1583892706"
-            }
-            component="img"
-            sx={{
-              height: "100%",
-              width: "100%",
-            }}
+          <LazyImage
+            image={{ height: "100%", width: "100%", src: barnerImage }}
           />
         </Grid>
       </Grid>

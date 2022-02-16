@@ -6,6 +6,8 @@ import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
+import barnerImage from "images/barnner.jpg";
+import LazyImage from "components/LazyImage";
 
 const ContactForm = () => {
   return (
@@ -77,14 +79,8 @@ const ContactForm = () => {
             </Grid>
 
             <Grid item xs={12} sm={6}>
-              <Box
-                component="img"
-                height="100%"
-                width="100%"
-                src={
-                  "https://images.adsttc.com/media/images/5e68/48ed/b357/658e/fb00/0441/large_jpg/AM1506.jpg?1583892706"
-                }
-                alt="green iguana"
+              <LazyImage
+                image={{ height: "100%", width: "100%", src: barnerImage }}
               />
             </Grid>
           </Grid>

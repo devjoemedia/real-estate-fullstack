@@ -19,7 +19,6 @@ const Listings = () => {
       try {
         const { data } = await axios.get("api/properties");
         setProperties(data?.properties);
-        console.log(data?.properties);
       } catch (err) {
         console.log(err);
       }

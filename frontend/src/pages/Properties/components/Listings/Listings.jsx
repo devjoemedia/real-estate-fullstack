@@ -10,16 +10,19 @@ import { Link as RouterLink } from "react-router-dom";
 import axios from "axios";
 import numeral from "numeral";
 import LazyImage from "components/LazyImage";
+import loader from "images/loader.svg";
 
 const Listings = () => {
   const [properties, setProperties] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const { data } = await axios.get("api/properties");
         setProperties(data?.properties);
-        console.log(data?.properties);
+        setLoading(false);
       } catch (err) {
         console.log(err);
       }
@@ -31,92 +34,106 @@ const Listings = () => {
   return (
     <Box py={6} sx={{ minHeight: "400px" }}>
       <Container>
-        <Grid container spacing={2}>
-          {properties.map((property) => (
-            <Grid item xs={12} sm={6} md={4}>
-              <Link
-                underline="none"
-                component={RouterLink}
-                to={`/properties/${property._id}`}
-              >
-                <Card
-                  sx={{
-                    maxWidth: 345,
-                    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                  }}
+        {!loading ? (
+          <Grid container spacing={2}>
+            {properties.map((property) => (
+              <Grid item xs={12} sm={6} md={4}>
+                <Link
+                  underline="none"
+                  component={RouterLink}
+                  to={`/properties/${property._id}`}
                 >
-                  <LazyImage
-                    image={{
-                      src: property?.bannerImage,
-                      height: "250px",
-                      overflow: false,
+                  <Card
+                    sx={{
+                      maxWidth: 345,
+                      boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
                     }}
-                  />
-
-                  <CardContent>
-                    <Box
-                      paddingBottom={2}
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
+                  >
+                    <LazyImage
+                      image={{
+                        src: property?.bannerImage,
+                        height: "250px",
+                        overflow: false,
                       }}
-                    >
-                      <Box component="div">
-                        <Typography variant="h6" component="p">
-                          {property.name}
-                        </Typography>
-                        <Typography variant="p" color={"#777"}>
-                          <i class="fas fa-map-marker-alt"></i>{" "}
-                          {property.location.city}
-                        </Typography>
-                      </Box>
-                      <Box>
-                        <Typography
-                          component="h4"
-                          sx={{
-                            fontSize: "1.2rem",
-                            fontWeight: "bold",
-                            color: "#222",
-                          }}
-                        >
-                          ${numeral(property.price).format()}
-                        </Typography>
-                      </Box>
-                    </Box>
+                    />
 
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        color: "#777",
-                      }}
-                      // flexDirection:{{ md: "columns" }}
-                    >
-                      <Box component="div">
-                        <i className="fas fa-briefcase"></i>
-                        <Typography variant="p" component="p">
-                          2 Bedrooms
-                        </Typography>
+                    <CardContent>
+                      <Box
+                        paddingBottom={2}
+                        sx={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <Box component="div">
+                          <Typography variant="h6" component="p">
+                            {property.name}
+                          </Typography>
+                          <Typography variant="p" color={"#777"}>
+                            <i class="fas fa-map-marker-alt"></i>{" "}
+                            {property.location.city}
+                          </Typography>
+                        </Box>
+                        <Box>
+                          <Typography
+                            component="h4"
+                            sx={{
+                              fontSize: "1.2rem",
+                              fontWeight: "bold",
+                              color: "#222",
+                            }}
+                          >
+                            ${numeral(property.price).format()}
+                          </Typography>
+                        </Box>
                       </Box>
-                      <Box component="div">
-                        <i className="fas fa-shower"></i>
-                        <Typography variant="p" component="p">
-                          2 Bathrooms
-                        </Typography>
+
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          color: "#777",
+                        }}
+                        // flexDirection:{{ md: "columns" }}
+                      >
+                        <Box component="div">
+                          <i className="fas fa-briefcase"></i>
+                          <Typography variant="p" component="p">
+                            2 Bedrooms
+                          </Typography>
+                        </Box>
+                        <Box component="div">
+                          <i className="fas fa-shower"></i>
+                          <Typography variant="p" component="p">
+                            2 Bathrooms
+                          </Typography>
+                        </Box>
+                        <Box component="div">
+                          <i className="far fa-square"></i>
+                          <Typography variant="p" component="p">
+                            1250 ft
+                          </Typography>
+                        </Box>
                       </Box>
-                      <Box component="div">
-                        <i className="far fa-square"></i>
-                        <Typography variant="p" component="p">
-                          1250 ft
-                        </Typography>
-                      </Box>
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Link>
-            </Grid>
-          ))}
-        </Grid>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </Grid>
+            ))}
+          </Grid>
+        ) : (
+          <div
+            style={{
+              display: "grid",
+              placeItems: "center",
+              width: "100%",
+              height: "100%",
+              textAlign: "center",
+            }}
+          >
+            <img src={loader} alt="loader" />
+          </div>
+        )}
       </Container>
     </Box>
   );

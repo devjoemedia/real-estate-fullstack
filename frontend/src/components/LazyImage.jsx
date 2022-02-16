@@ -4,10 +4,8 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const LazyImage = ({ image }) => (
   <Box
-    // component="img"
     height={image?.height ? image?.height : "400px"}
     width="100%"
-    // src={property?.bannerImage}
     alt="green iguana"
     sx={{
       borderRadius: "10px",

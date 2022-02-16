@@ -10,17 +10,22 @@ import axios from "axios";
 import numeral from "numeral";
 import LazyImage from "components/LazyImage";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
+import loader from "images/loader.svg";
 
 const PropertyDetailsPage = () => {
   const [property, setProperty] = useState();
+  const [loading, setLoading] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
+
         const { data } = await axios.get("/api/properties/" + id);
         setProperty(data.property);
-        console.log(data);
+
+        setLoading(false);
       } catch (err) {
         console.log(err);
       }
@@ -31,7 +36,7 @@ const PropertyDetailsPage = () => {
   return (
     <Box py={4}>
       <Container maxWidth="lg" sx={{ minHeight: "90vh" }}>
-        {property && (
+        {!loading ? (
           <Grid container justify="space-between">
             <Grid item xs={12} sm={8} px={3} mb={5}>
               <LazyImage
@@ -246,6 +251,18 @@ const PropertyDetailsPage = () => {
               </Box>
             </Grid>
           </Grid>
+        ) : (
+          <div
+            style={{
+              display: "grid",
+              placeItems: "center",
+              width: "100%",
+              height: "100%",
+              textAlign: "center",
+            }}
+          >
+            <img src={loader} alt="loader" />
+          </div>
         )}
       </Container>
     </Box>
