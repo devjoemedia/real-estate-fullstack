@@ -2,6 +2,8 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const { errorHandler } = require("./middleware/errorMiddleware");
 const propertyRoute = require("./routes/propertyRoute");
+const userRoute = require("./routes/userRoute");
+const reviewRoute = require("./routes/reviewRoute");
 const connectDB = require("./config/db");
 const cors = require("cors");
 
@@ -17,6 +19,8 @@ app.use(cors());
 
 // Routes
 app.use("/api/properties", propertyRoute);
+app.use("/api/users", userRoute);
+app.use("/api/reviews", reviewRoute);
 
 // middleware
 app.use(errorHandler);
