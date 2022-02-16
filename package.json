@@ -4,8 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
-    "develop": "nodemon index.js"
+    "start": "node backend/index.js",
+    "develop": "nodemon backend/index.js",
+    "dev": "concurrently  \"yarn develop\" \"frontend yarn start\""
   },
   "dependencies": {
     "cors": "^2.8.5",

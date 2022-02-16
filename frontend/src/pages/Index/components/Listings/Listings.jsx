@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import { Link } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import axios from "axios";
 import numeral from "numeral";
+import LazyImage from "components/LazyImage";
 
 const Listings = () => {
   const [properties, setProperties] = useState([]);
@@ -31,10 +29,10 @@ const Listings = () => {
     // return () => {};
   }, []);
   return (
-    <Box py={6}>
+    <Box py={6} sx={{ minHeight: "400px" }}>
       <Container>
-        <Typography variant="h3" sx={{ textAlign: "center" }} mb={2}>
-          Top Listings
+        <Typography variant="h4" sx={{ textAlign: "center" }} mb={3}>
+          Recent Residence
         </Typography>
 
         <Grid container spacing={2}>
@@ -51,12 +49,14 @@ const Listings = () => {
                     boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
                   }}
                 >
-                  <CardMedia
-                    component="img"
-                    height="250"
-                    image={property.bannerImage}
-                    alt="green iguana"
+                  <LazyImage
+                    image={{
+                      src: property?.bannerImage,
+                      height: "250px",
+                      overflow: false,
+                    }}
                   />
+
                   <CardContent>
                     <Box
                       paddingBottom={2}

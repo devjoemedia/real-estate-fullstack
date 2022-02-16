@@ -2,6 +2,12 @@ const asyncHandler = require("express-async-handler");
 const Property = require("../models/Property");
 const Review = require("../models/Review");
 
+const webhook = asyncHandler(async (req, res, next) => {
+  console.log("Webhook server accessed");
+
+  next();
+});
+
 // @method GET Request
 // @desc Get all properties
 const getProperties = asyncHandler(async (req, res) => {
@@ -84,4 +90,5 @@ module.exports = {
   createProperty,
   updateProperty,
   deleteProperty,
+  webhook,
 };
