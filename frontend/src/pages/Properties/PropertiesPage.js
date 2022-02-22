@@ -1,12 +1,15 @@
 import React from "react";
-import Box from "@mui/material/Box";
 import Listings from "./components/Listings";
+import Container from "components/Container";
+import Main from "components/Main";
 
 const PropertiesPage = () => {
   return (
-    <Box>
-      <Listings />
-    </Box>
+    <Main>
+      <Container>
+        <Listings />
+      </Container>
+    </Main>
   );
 };
 

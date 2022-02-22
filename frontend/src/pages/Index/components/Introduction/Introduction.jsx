@@ -11,7 +11,7 @@ const Introduction = () => {
     <Box>
       <Grid container spacing={0}>
         <Grid
-          p={6}
+          padding={{ xs: 4, sm: 6, md: 5 }}
           item
           xs={12}
           sm={6}

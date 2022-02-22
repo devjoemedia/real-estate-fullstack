@@ -1,12 +1,15 @@
 import React from "react";
-import Box from "@mui/material/Box";
 import ContactForm from "../../components/ContactForm";
+import Main from "components/Main";
+import Container from "components/Container";
 
 const ContactsPage = () => {
   return (
-    <Box>
-      <ContactForm />
-    </Box>
+    <Main>
+      <Container>
+        <ContactForm />
+      </Container>
+    </Main>
   );
 };
 

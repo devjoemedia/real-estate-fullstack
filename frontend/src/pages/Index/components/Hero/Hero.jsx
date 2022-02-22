@@ -3,7 +3,6 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
 import { Link as RouterLink } from "react-router-dom";
 import { Link } from "@mui/material";
 import barnerImage from "images/barnner.jpg";
@@ -12,7 +11,6 @@ import LazyImage from "components/LazyImage";
 const Hero = () => {
   return (
     <Box sx={{ bgcolor: "#f2f2f2" }}>
-      {/* <Container> */}
       <Grid container sx={{ minHeight: "600px" }}>
         <Grid item xs={12} sm={6}>
           <LazyImage
@@ -79,7 +77,6 @@ const Hero = () => {
           </Grid>
         </Grid>
       </Grid>
-      {/* </Container> */}
     </Box>
   );
 };

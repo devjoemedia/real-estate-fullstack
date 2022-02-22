@@ -12,6 +12,8 @@ const Review = () => {
         borderRadius: "10PX",
         bgcolor: "#fff",
       }}
+      maxWidth={"400px"}
+      marginX={"auto"}
     >
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <Avatar src={ProfileOne} sx={{ width: "50px", height: "50px" }} />

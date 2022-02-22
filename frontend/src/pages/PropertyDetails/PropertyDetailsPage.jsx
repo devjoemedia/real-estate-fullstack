@@ -9,8 +9,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import numeral from "numeral";
 import LazyImage from "components/LazyImage";
-import { LazyLoadComponent } from "react-lazy-load-image-component";
 import loader from "images/loader.svg";
+import Main from "components/Main";
 
 const PropertyDetailsPage = () => {
   const [property, setProperty] = useState();
@@ -34,8 +34,8 @@ const PropertyDetailsPage = () => {
   }, [id]);
 
   return (
-    <Box py={4}>
-      <Container maxWidth="lg" sx={{ minHeight: "90vh" }}>
+    <Main>
+      <Container sx={{ minHeight: "90vh", marginTop: "50px" }}>
         {!loading ? (
           <Grid container justify="space-between">
             <Grid item xs={12} sm={8} px={3} mb={5}>
@@ -243,12 +243,19 @@ const PropertyDetailsPage = () => {
                 </Typography>
                 <Typography component="p">see all</Typography>
               </Box>
-              <Box>
-                <Review />
-                <Review />
-                <Review />
-                <Review />
-              </Box>
+              {property?.reviews.length ? (
+                <Box>
+                  <Review />
+                  <Review />
+                  <Review />
+                </Box>
+              ) : (
+                <Box sx={{ textAlign: "center" }}>
+                  <Typography variant="h5" sx={{ marginBottom: "20px" }}>
+                    No reviews yet
+                  </Typography>
+                </Box>
+              )}
             </Grid>
           </Grid>
         ) : (
@@ -265,7 +272,7 @@ const PropertyDetailsPage = () => {
           </div>
         )}
       </Container>
-    </Box>
+    </Main>
   );
 };
 
