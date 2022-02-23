@@ -3,7 +3,7 @@ import ContactForm from "../../components/ContactForm";
 import Main from "components/Main";
 import Container from "components/Container";
 
-const ContactsPage = () => {
+const Contacts = () => {
   return (
     <Main>
       <Container>
@@ -13,4 +13,4 @@ const ContactsPage = () => {
   );
 };
 
-export default ContactsPage;
+export default Contacts;

@@ -10,9 +10,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "components/Container";
 import { Sidebar, Footer } from "./components";
 
-import { Button, MenuItem, useTheme } from "@mui/material";
+import { Avatar, Button, MenuItem, useTheme } from "@mui/material";
 
-const Main = ({ children, colorInvert = false, bgcolor = "transparent" }) => {
+const Main = ({ children, colorInvert = false, bgcolor }) => {
   const pages = [
     {
       groupTitle: "About",
@@ -80,7 +80,13 @@ const Main = ({ children, colorInvert = false, bgcolor = "transparent" }) => {
     },
   ];
 
-  const navPages = ["Company", "Support", "Pricing", "Properties"];
+  const navPages = [
+    "Properties",
+    "For sell",
+    "For rent",
+    "Companies",
+    "Agents",
+  ];
 
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up("md"), {
@@ -100,7 +106,7 @@ const Main = ({ children, colorInvert = false, bgcolor = "transparent" }) => {
   const open = isMd ? false : openSidebar;
 
   return (
-    <Box>
+    <Box bgcolor={bgcolor ? bgcolor : "transparent"}>
       <AppBar
         position={"sticky"}
         sx={{
@@ -136,7 +142,7 @@ const Main = ({ children, colorInvert = false, bgcolor = "transparent" }) => {
                   <Link
                     underline="none"
                     component={RouterLink}
-                    to={`/${title.toLocaleLowerCase()}`}
+                    to={`/${title.toLocaleLowerCase().split(" ").join("-")}`}
                     color={"#fff"}
                     sx={{ display: "flex", alignItems: "center" }}
                   >
@@ -146,12 +152,25 @@ const Main = ({ children, colorInvert = false, bgcolor = "transparent" }) => {
               ))}
 
               <Box marginLeft={4}>
-                <Link component={RouterLink} to="register" underline="none">
-                  <Button variant="contained" color="primary" size="large">
-                    Start a free trial
+                <Link component={RouterLink} to="/login" underline="none">
+                  <Button variant="contained" color="primary" size="medium">
+                    Login
                   </Button>
                 </Link>
               </Box>
+              <Box marginLeft={4}>
+                <Link component={RouterLink} to="/register" underline="none">
+                  <Button variant="contained" color="primary" size="medium">
+                    Register
+                  </Button>
+                </Link>
+              </Box>
+              {/* <Box marginLeft={4}>
+                <Link component={RouterLink} to="register" underline="none">
+                  <Avatar sx={{ width: "50px", height: "50px" }} />
+                  Jane Doe
+                </Link>
+              </Box> */}
             </Box>
 
             <Box

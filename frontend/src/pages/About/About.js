@@ -7,7 +7,7 @@ import ContactForm from "components/ContactForm";
 import Container from "components/Container";
 import Main from "components/Main";
 
-const AboutPage = () => {
+const About = () => {
   return (
     <Main>
       <Container
@@ -37,4 +37,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default About;

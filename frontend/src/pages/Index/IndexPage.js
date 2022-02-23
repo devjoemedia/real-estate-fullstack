@@ -10,7 +10,7 @@ import ContactForm from "../../components/ContactForm";
 import Container from "components/Container";
 import Main from "components/Main";
 
-const IndexPage = () => {
+const Index = () => {
   return (
     <Main>
       <Container
@@ -50,4 +50,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default Index;

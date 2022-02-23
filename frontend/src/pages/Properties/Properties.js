@@ -3,7 +3,7 @@ import Listings from "./components/Listings";
 import Container from "components/Container";
 import Main from "components/Main";
 
-const PropertiesPage = () => {
+const Properties = () => {
   return (
     <Main>
       <Container>
@@ -13,4 +13,4 @@ const PropertiesPage = () => {
   );
 };
 
-export default PropertiesPage;
+export default Properties;

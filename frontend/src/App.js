@@ -1,11 +1,14 @@
 import IndexPage from "./pages/Index";
-import PropertyDetailsPage from "./pages/PropertyDetails";
-import PropertiesPage from "./pages/Properties";
+import PropertyDetails from "./pages/PropertyDetails";
+import Properties from "./pages/Properties";
 import { Routes, Route } from "react-router-dom";
-import ContactsPage from "./pages/Contacts";
-import AboutPage from "./pages/About";
+import Contacts from "./pages/Contacts";
+import About from "./pages/About";
 import Box from "@mui/material/Box";
-import NotFound from "pages/NotFound/NotFound";
+import NotFound from "pages/NotFound";
+import Agent from "pages/Agent";
+import Login from "pages/Login";
+import Register from "pages/Register";
 
 import "./App.css";
 
@@ -15,11 +18,14 @@ function App() {
       <Routes>
         <Route path="/" element={<IndexPage />} />
         <Route path="home" element={<IndexPage />} />
-        <Route path="about" element={<AboutPage />} />
-        <Route path="contacts" element={<ContactsPage />} />
+        <Route path="about" element={<About />} />
+        <Route path="contacts" element={<Contacts />} />
         <Route index element={<IndexPage />} />
-        <Route path="properties" element={<PropertiesPage />} />
-        <Route path="properties/:id" element={<PropertyDetailsPage />} />
+        <Route path="properties" element={<Properties />} />
+        <Route path="properties/:id" element={<PropertyDetails />} />
+        <Route path="agent/:id" element={<Agent />} />
+        <Route path="register" element={<Register />} />
+        <Route path="login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Box>

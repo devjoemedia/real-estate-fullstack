@@ -4,7 +4,15 @@ import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
-import { Link, TextField } from "@mui/material";
+import {
+  FormControl,
+  FormLabel,
+  InputLabel,
+  Link,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import axios from "axios";
 import numeral from "numeral";
@@ -16,6 +24,7 @@ const Listings = () => {
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [errMsg, setErrMsg] = useState("");
+  const [filterValue, setFilterValue] = useState("Filter By:");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,12 +48,37 @@ const Listings = () => {
     <Box sx={{ minHeight: "400px" }}>
       <Box
         sx={{
-          width: "90%",
-          margin: "auto",
           marginBottom: "20px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
-        <TextField padding={4} fullWidth placeholder="Search properties" />
+        <Box sx={{ flex: 0.95 }}>
+          <TextField
+            padding={4}
+            fullWidth
+            placeholder="Search properties"
+            size="medium"
+          />
+        </Box>
+
+        <Box sx={{ width: "120px" }}>
+          <FormControl fullWidth>
+            <Select
+              value={filterValue}
+              size="small"
+              onChange={(e) => setFilterValue(e.target.value)}
+            >
+              <MenuItem disabled value="Filter By:">
+                Filter By:
+              </MenuItem>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
       </Box>
 
       {isError && (
