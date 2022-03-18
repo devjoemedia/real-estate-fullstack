@@ -10,7 +10,7 @@ import axios from "axios";
 import numeral from "numeral";
 import LazyImage from "components/LazyImage";
 import loader from "images/loader.svg";
-import Main from "components/Main";
+import Main from "layout/Main";
 import Slider from "react-slick";
 import Avatar from "@mui/material/Avatar";
 import Link from "@mui/material/Link";
@@ -29,6 +29,7 @@ const PropertyDetails = () => {
     slidesToScroll: 1,
     autoplay: true,
     arrows: true,
+    fullWidth: true,
   };
   const [property, setProperty] = useState();
   const [loading, setLoading] = useState(false);
@@ -52,7 +53,10 @@ const PropertyDetails = () => {
 
   return (
     <Main>
-      <Container sx={{ minHeight: "80vh", marginTop: "50px" }}>
+      <Container
+        paddingX="0 !important"
+        sx={{ minHeight: "60vh", marginTop: "50px" }}
+      >
         {!loading ? (
           <Grid container justify="space-between">
             <Grid item xs={12} sm={8} px={3} mb={5}>
@@ -127,8 +131,10 @@ const PropertyDetails = () => {
                   display: "flex",
                   justifyContent: "space-between",
                 }}
+                flexDirection={{ xs: "column", md: "row" }}
               >
                 <Box
+                  mb={{ xs: 2, md: 3 }}
                   sx={{
                     fontWeight: "bold",
                     display: "flex",
@@ -152,6 +158,7 @@ const PropertyDetails = () => {
                   </Typography>
                 </Box>
                 <Box
+                  mb={{ xs: 2, md: 3 }}
                   sx={{
                     fontWeight: "bold",
                     display: "flex",
@@ -175,6 +182,7 @@ const PropertyDetails = () => {
                   </Typography>
                 </Box>
                 <Box
+                  mb={{ xs: 2, md: 3 }}
                   sx={{
                     fontWeight: "bold",
                     display: "flex",
@@ -198,6 +206,7 @@ const PropertyDetails = () => {
                   </Typography>
                 </Box>
                 <Box
+                  mb={{ xs: 2, md: 3 }}
                   sx={{
                     fontWeight: "bold",
                     display: "flex",
@@ -284,55 +293,51 @@ const PropertyDetails = () => {
                       display: "flex",
                       alignItems: "center",
                     }}
+                    flexDirection={{ xs: "column", md: "row" }}
                   >
-                    <Box
-                      mr={3}
-                      mb={2}
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <Avatar
-                        src={agentImage}
-                        sx={{ width: "100px", height: "100px" }}
-                      />
-                    </Box>
+                    <Avatar
+                      src={agentImage}
+                      sx={{ width: "120px", height: "120px" }}
+                    />
 
                     <Box
+                      ml={3}
                       sx={{
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "center",
                       }}
                     >
-                      <Typography variant="p">Tomas Duncan</Typography>
-                      <Typography variant="p">(+223 545 454 454)</Typography>
+                      <Typography variant="h6" component="p">
+                        Tomas Duncan
+                      </Typography>
+                      <Typography variant="h6" mb={1}>
+                        (+223 545 454 454)
+                      </Typography>
+                      <Link
+                        underline="none"
+                        component={RouterLink}
+                        to={`/agents/122`}
+                      >
+                        <Button
+                          size="small"
+                          sx={{
+                            width: { xs: "100%", md: "auto" },
+                            bgcolor: "#333",
+                            color: "#fff",
+                            padding: "8px 20px",
+                            marginRight: "10px",
+                            "&:hover": {
+                              bgcolor: "#333",
+                              color: "#fff",
+                            },
+                          }}
+                        >
+                          view profile
+                        </Button>
+                      </Link>
                     </Box>
                   </Box>
-
-                  <Link
-                    underline="none"
-                    component={RouterLink}
-                    to={`/agent/122`}
-                  >
-                    <Button
-                      size="small"
-                      sx={{
-                        bgcolor: "#333",
-                        color: "#fff",
-                        padding: "8px 20px",
-                        marginRight: "10px",
-                        "&:hover": {
-                          bgcolor: "#333",
-                          color: "#fff",
-                        },
-                      }}
-                    >
-                      view profile
-                    </Button>
-                  </Link>
 
                   <Box>
                     <RequestInfoForm />

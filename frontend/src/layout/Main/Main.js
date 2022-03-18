@@ -82,10 +82,10 @@ const Main = ({ children, colorInvert = false, bgcolor }) => {
 
   const navPages = [
     "Properties",
-    "For sell",
-    "For rent",
+    "Lands",
     "Companies",
     "Agents",
+    "Payment Plan",
   ];
 
   const theme = useTheme();

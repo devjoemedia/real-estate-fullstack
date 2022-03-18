@@ -56,7 +56,7 @@ const UserRegisterForm = () => {
             },
           }}
         >
-          Google
+          continue with Google
         </Button>
       </Box>
     </Box>

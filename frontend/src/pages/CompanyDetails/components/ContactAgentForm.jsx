@@ -4,9 +4,9 @@ import React from "react";
 
 const ContactAgentForm = () => {
   return (
-    <Box px={3}>
+    <Box px={{ xs: 1, sm: 0, md: 3 }}>
       <Typography variant="h5" mb={2}>
-        Contact Agent
+        Contact
       </Typography>
       <form className="mui-form">
         <Box mb={2}>

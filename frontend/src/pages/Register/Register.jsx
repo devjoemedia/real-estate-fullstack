@@ -1,5 +1,5 @@
-import { Box, Button, Divider, TextField, Typography } from "@mui/material";
-import Main from "components/Main";
+import { Box, Divider, Typography } from "@mui/material";
+import Main from "layout/Main";
 import React, { useState } from "react";
 import CompanyRegisterForm from "./components/CompanyRegisterForm";
 import UserRegisterForm from "./components/UserRegisterForm";
@@ -8,7 +8,7 @@ const Register = () => {
   const [asCompany, setAsCompany] = useState(false);
 
   return (
-    <Main bgcolor="#f1f1f1">
+    <Main bgcolor="#f5f5f5">
       <Box
         sx={{
           width: "100%",

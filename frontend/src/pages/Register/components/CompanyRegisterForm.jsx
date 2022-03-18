@@ -60,7 +60,7 @@ const CompanyRegisterForm = () => {
             },
           }}
         >
-          Google
+          continue with Google
         </Button>
       </Box>
     </Box>

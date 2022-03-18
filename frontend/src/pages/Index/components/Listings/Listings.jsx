@@ -17,7 +17,7 @@ const Listings = () => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get("api/properties");
-        setProperties(data?.properties);
+        setProperties(data?.properties.slice(0, 3));
       } catch (err) {
         console.log(err);
       }
@@ -27,11 +27,7 @@ const Listings = () => {
     // return () => {};
   }, []);
   return (
-    <Box py={6} sx={{ minHeight: "400px" }}>
-      <Typography variant="h4" sx={{ textAlign: "left" }} mb={3}>
-        Recent Residence
-      </Typography>
-
+    <Box py={2} sx={{ minHeight: "400px" }}>
       <Grid container spacing={2}>
         {properties.map((property) => (
           <Grid item xs={12} sm={6} md={4} key={property?._id}>
@@ -43,6 +39,7 @@ const Listings = () => {
               <Card
                 sx={{
                   maxWidth: 345,
+                  margin: "auto",
                   boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
                 }}
               >

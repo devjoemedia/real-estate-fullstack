@@ -5,7 +5,7 @@ import Testimonials from "./components/Testimonials";
 import Teams from "./components/Teams";
 import ContactForm from "components/ContactForm";
 import Container from "components/Container";
-import Main from "components/Main";
+import Main from "layout/Main";
 
 const About = () => {
   return (

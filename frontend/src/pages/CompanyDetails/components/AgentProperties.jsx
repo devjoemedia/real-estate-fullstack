@@ -31,7 +31,7 @@ const AgentProperties = () => {
   return (
     <Box py={3}>
       <Typography variant="h5" py={2}>
-        Agent Properties
+        Properties
       </Typography>
 
       <Grid container spacing={2}>
@@ -45,6 +45,7 @@ const AgentProperties = () => {
               <Card
                 sx={{
                   maxWidth: 345,
+                  margin: "auto",
                   boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
                 }}
               >

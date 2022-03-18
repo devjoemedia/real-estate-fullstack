@@ -8,14 +8,14 @@ import {
   Typography,
 } from "@mui/material";
 import Container from "components/Container";
-import Main from "components/Main";
+import Main from "layout/Main";
 import React from "react";
 import ContactAgentForm from "./components/ContactAgentForm";
 import agentImage from "images/profile-1.jpg";
 import { Link as RouterLink } from "react-router-dom";
 import AgentProperties from "./components/AgentProperties";
 
-const Agent = () => {
+const AgentDetails = () => {
   return (
     <Main bgcolor="#f1f1f1">
       <Container>
@@ -28,6 +28,7 @@ const Agent = () => {
                     display: "flex",
                     alignItems: "center",
                   }}
+                  flexDirection={{ xs: "column", md: "row" }}
                   py={3}
                 >
                   <Box
@@ -51,11 +52,12 @@ const Agent = () => {
                       flexDirection: "column",
                       justifyContent: "center",
                     }}
+                    alignItems={{ xs: "center" }}
                   >
-                    <Typography variant="p">Tomas Duncan</Typography>
-                    <Typography variant="p">(+223 545 454 454)</Typography>
-                    <Typography variant="p">Tomas Duncan</Typography>
-                    <Typography variant="p">(+223 545 454 454)</Typography>
+                    <Typography variant="h6" component="p">
+                      Tomas Duncan
+                    </Typography>
+                    <Typography variant="h6">(+223 545 454 454)</Typography>
 
                     <Box mt={2}>
                       <Link
@@ -66,6 +68,8 @@ const Agent = () => {
                         <Button
                           size="small"
                           sx={{
+                            width: { xs: "100%", md: "auto" },
+                            marginTop: "15px",
                             bgcolor: "#333",
                             color: "#fff",
                             padding: "8px 20px",
@@ -76,7 +80,7 @@ const Agent = () => {
                             },
                           }}
                         >
-                          view profile
+                          connect
                         </Button>
                       </Link>
                       <Link
@@ -87,6 +91,8 @@ const Agent = () => {
                         <Button
                           size="small"
                           sx={{
+                            width: { xs: "100%", md: "auto" },
+                            marginTop: "15px",
                             bgcolor: "#f1f1f1",
                             color: "#444",
                             padding: "8px 20px",
@@ -141,4 +147,4 @@ const Agent = () => {
   );
 };
 
-export default Agent;
+export default AgentDetails;

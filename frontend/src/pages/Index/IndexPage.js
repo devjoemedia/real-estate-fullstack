@@ -8,7 +8,8 @@ import Testimonials from "./components/Testimonials";
 import Teams from "./components/Teams";
 import ContactForm from "../../components/ContactForm";
 import Container from "components/Container";
-import Main from "components/Main";
+import Main from "layout/Main";
+import { Typography } from "@mui/material";
 
 const Index = () => {
   return (
@@ -20,16 +21,41 @@ const Index = () => {
       >
         <Hero />
       </Container>
-      <Container
+      {/* <Container
         maxWidth={{ xl: 1236 }}
         paddingY={"0 !important"}
         paddingX={"0 !important"}
       >
         <Introduction />
-      </Container>
-      <Container>
+      </Container> */}
+      <Container paddingY={"0 !important"}>
+        <Typography variant="h4" sx={{ textAlign: "left" }} m={2}>
+          Recent Residence
+        </Typography>
         <Listings />
       </Container>
+
+      <Container paddingY={"0 !important"}>
+        <Typography variant="h4" sx={{ textAlign: "left" }} m={2}>
+          Top rated
+        </Typography>
+        <Listings />
+      </Container>
+
+      <Container paddingY={"0 !important"}>
+        <Typography variant="h4" sx={{ textAlign: "left" }} m={2}>
+          Studio Apartments
+        </Typography>
+        <Listings />
+      </Container>
+
+      <Container paddingY={"0 !important"}>
+        <Typography variant="h4" sx={{ textAlign: "left" }} m={2}>
+          VIP Residence
+        </Typography>
+        <Listings />
+      </Container>
+
       <Container
         maxWidth={{ xl: 1236 }}
         paddingX={"0 !important"}

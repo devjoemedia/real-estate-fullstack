@@ -1,5 +1,5 @@
 import React from "react";
-import Main from "components/Main";
+import Main from "layout/Main";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
@@ -72,7 +72,7 @@ const Login = () => {
                   },
                 }}
               >
-                Google
+                continue with Google
               </Button>
             </Box>
           </Box>

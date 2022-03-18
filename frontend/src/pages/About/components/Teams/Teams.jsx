@@ -16,6 +16,7 @@ const Teams = () => {
           <Card
             sx={{
               maxWidth: 345,
+              margin: "auto",
               textAlign: "center",
               transition: "all ease-in-out 0.3s",
               "&:hover": { boxShadow: "10px 5px 25px rgba(0,0,0,0.4)" },
@@ -39,6 +40,7 @@ const Teams = () => {
           <Card
             sx={{
               maxWidth: 345,
+              margin: "auto",
               textAlign: "center",
               transition: "all ease-in-out 0.3s",
               "&:hover": { boxShadow: "10px 5px 25px rgba(0,0,0,0.4)" },
@@ -62,6 +64,7 @@ const Teams = () => {
           <Card
             sx={{
               maxWidth: 345,
+              margin: "auto",
               textAlign: "center",
               transition: "all ease-in-out 0.3s",
               "&:hover": { boxShadow: "10px 5px 25px rgba(0,0,0,0.4)" },
@@ -85,6 +88,7 @@ const Teams = () => {
           <Card
             sx={{
               maxWidth: 345,
+              margin: "auto",
               textAlign: "center",
               transition: "all ease-in-out 0.3s",
               "&:hover": { boxShadow: "10px 5px 25px rgba(0,0,0,0.4)" },
@@ -108,6 +112,7 @@ const Teams = () => {
           <Card
             sx={{
               maxWidth: 345,
+              margin: "auto",
               textAlign: "center",
               transition: "all ease-in-out 0.3s",
               "&:hover": { boxShadow: "10px 5px 25px rgba(0,0,0,0.4)" },
@@ -131,6 +136,7 @@ const Teams = () => {
           <Card
             sx={{
               maxWidth: 345,
+              margin: "auto",
               textAlign: "center",
               transition: "all ease-in-out 0.3s",
               "&:hover": { boxShadow: "10px 5px 25px rgba(0,0,0,0.4)" },
