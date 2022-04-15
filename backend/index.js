@@ -6,6 +6,7 @@ const userRoute = require("./routes/userRoute");
 const reviewRoute = require("./routes/reviewRoute");
 const connectDB = require("./config/db");
 const cors = require("cors");
+const path = require("path");
 
 // Database Connection
 connectDB();
@@ -16,6 +17,8 @@ const app = express();
 app.use(express.json());
 
 app.use(cors());
+
+app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 // Routes
 app.use("/api/properties", propertyRoute);
