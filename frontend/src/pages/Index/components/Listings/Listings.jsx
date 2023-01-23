@@ -16,7 +16,7 @@ const Listings = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("api/properties");
+        const { data } = await axios.get("https://jneastate-backend.onrender.com/api/properties");
         setProperties(data?.properties.slice(0, 3));
       } catch (err) {
         console.log(err);

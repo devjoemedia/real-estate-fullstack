@@ -28,7 +28,7 @@ const Listings = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get("api/properties");
+        const { data } = await axios.get("https://jneastate-backend.onrender.com/api/properties");
         setProperties(data?.properties);
         setLoading(false);
       } catch (err) {

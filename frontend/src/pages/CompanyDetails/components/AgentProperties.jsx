@@ -17,7 +17,7 @@ const AgentProperties = () => {
       try {
         setLoading(true);
 
-        const { data } = await axios.get("/api/properties/");
+        const { data } = await axios.get("https://jneastate-backend.onrender.com/api/properties/");
 
         setProperties(data?.properties?.slice(0, 4));
 

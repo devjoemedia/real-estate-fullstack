@@ -43,7 +43,7 @@ const LandDetails = () => {
       try {
         setLoading(true);
 
-        const { data } = await axios.get("/api/properties/" + id);
+        const { data } = await axios.get("https://jneastate-backend.onrender.com/api/properties/" + id);
         setProperty(data.property);
 
         setLoading(false);
