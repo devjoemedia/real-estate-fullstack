@@ -5,7 +5,6 @@
   "license": "MIT",
   "scripts": {
     "start": "node backend/index.js",
-    "heroku-postbuild": "cd frontend && npm install && npm run build",
     "server": "nodemon backend/index.js",
     "client": "yarn --cwd ./frontend start",
     "dev": "concurrently \"yarn server\" \"yarn client\""
